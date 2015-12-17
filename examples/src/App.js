@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
-// import SimpleFormat from 'react-simple-format'  // TODO : loads just fine as long as this is not enabled.  When enabled, the error says that it is looking for a file named src, rather than in the src directory but the webpack.config.js looks correct to me.
+import React, { Component } from 'react'
+import SimpleFormat from 'react-simple-format'
 
 export default class App extends Component {
-  render() {
+  render () {
+    const text = 'hello\n\nworld'
     return (
-      <h1>Hello, world.</h1>
-    );
+      <SimpleFormat text={ text } />
+    )
   }
 }
