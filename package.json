@@ -48,4 +48,7 @@
   "dependencies": {
     "sanitize-html": "^1.11.1"
   },
+  "standard": {
+    "parser": "babel-eslint"
+  }
 }
