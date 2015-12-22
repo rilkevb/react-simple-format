@@ -4,7 +4,7 @@ The port of Rails's [simple_format](http://api.rubyonrails.org/classes/ActionVie
 
 ## Usage
 
-Turns double newlines into different paragraphs. See [examples](examples) for live examples.s
+Turns double newlines into different paragraphs. See [examples](examples) for live examples.
 
 ```js
 const forwardText = "You can't connect the dots looking forward;\n\nYou can only connect them looking backward."
