@@ -6,7 +6,7 @@ export default class SimpleFormat extends Component {
     text: PropTypes.string.isRequired,
     wrapperTag: PropTypes.oneOfType([
       React.PropTypes.string,
-      React.PropTypes.element
+      React.PropTypes.object
     ]),
     wrapperTagProps: PropTypes.object
   }
