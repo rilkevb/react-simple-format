@@ -23,7 +23,7 @@ This will render:
 
 ## Props
 
-### `wrapperTag` (string/react element)
+### `wrapperTag` (string/react class)
 
 Default is `'div'`, but you can change it to something else:
 
