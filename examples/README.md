@@ -5,13 +5,23 @@ The minimal dev environment to enable live-editing React components.
 
 ### Usage
 
+First, run `npm install` on the directory above:
+
 ```
+cd ..
+npm install
+```
+
+Then:
+
+```
+# in examples directory
 npm install
 npm start
 open http://localhost:3000
 ```
 
-Now edit `src/App.js`.  
+Now edit `src/App.js`.
 Your changes will appear without reloading the browser like in [this video](http://vimeo.com/100010922).
 
 ### Linting
