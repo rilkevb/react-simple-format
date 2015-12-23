@@ -5,7 +5,7 @@
   "main": "lib/index",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rilkevb/React-SimpleFormat-Component.git"
+    "url": "https://github.com/rilkevb/react-simple-format.git"
   },
   "authors": [
     "chibicode, rilkevb"
