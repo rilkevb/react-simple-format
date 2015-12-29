@@ -15,13 +15,7 @@
   "scripts": {
     "build": "mkdir -p lib && babel ./src/index.js --out-file ./lib/index.js",
     "lint": "eslint src test",
-    "test": "mocha test/index.js -w",
-    "test:node": "mocha --compilers js:babel-core/register --recursive ./test/node",
-    "test:browser": "karma start",
-    "test:cov": "npm run test:cov:browser && npm run test:cov:node && npm run test:cov:report",
-    "test:cov:node": "babel-node $(npm bin)/isparta cover $(npm bin)/_mocha report --dir ./coverage/node-coverage -- --recursive ./test/node",
-    "test:cov:browser": "COVERAGE=true karma start",
-    "test:cov:report": "$(npm bin)/istanbul report --dir ./coverage --include **/*coverage.json html text",
+    "test": "mocha --compilers js:babel-core/register --require ./test/setup.js --recursive ./test -w",
     "prepublish": "npm run build"
   },
   "tags": [
@@ -44,15 +38,20 @@
     "babel-preset-react": "^6.3.13",
     "babel-preset-stage-0": "^6.3.13",
     "chai": "^3.4.1",
-    "jsdom": "^2.0.0",
+    "jsdom": "^7.2.2",
     "mocha": "^2.3.4",
-    "react-tools": "^0.12.1",
+    "react": "0.14.3",
+    "react-addons-test-utils": "^0.14.3",
     "sanitize-html": "^1.11.1"
   },
   "dependencies": {
     "sanitize-html": "^1.11.1"
   },
   "standard": {
+    "global": [
+      "describe",
+      "it"
+    ],
     "parser": "babel-eslint"
   }
 }
