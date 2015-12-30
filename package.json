@@ -16,6 +16,7 @@
     "build": "mkdir -p lib && babel ./src/index.js --out-file ./lib/index.js",
     "lint": "eslint src test",
     "test": "mocha --compilers js:babel-core/register --require ./test/setup.js --recursive ./test",
+    "test:watch": "mocha --compilers js:babel-core/register --require ./test/setup.js --recursive ./test -w",
     "prepublish": "npm run build"
   },
   "tags": [
@@ -40,8 +41,7 @@
     "chai": "^3.4.1",
     "jsdom": "^7.2.2",
     "mocha": "^2.3.4",
-    "react-addons-test-utils": "^0.14.5",
-    "sanitize-html": "^1.11.1"
+    "react-addons-test-utils": "^0.14.5"
   },
   "dependencies": {
     "react-dom": "^0.14.5",
