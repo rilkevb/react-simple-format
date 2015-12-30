@@ -1,47 +1,53 @@
 import React from 'react'
-import SimpleFormat from '../src/index'
-import TestUtils from 'react-addons-test-utils'
+import { renderToStaticMarkup } from 'react-dom/server'
+import { findDOMNode } from 'react-dom'
+import SimpleFormat from '../src'
 import { expect } from 'chai'
 
 import { renderIntoDocument } from 'react-addons-test-utils'
 
 describe('SimpleFormat', () => {
+  const str1 = 'You cannot connect the dots looking forward;'
+  const str2First = 'You can only connect them'
+  const str2Second = 'looking backward.'
+  const str2 = `${str2First} ${str2Second}`
+  const str = `${str1} ${str2}`
 
   it('renders text without newlines correctly', () => {
     expect(
-      React.renderToStaticMarkup(
-        <SimpleFormat text={ 'You cannot connect the dots looking forward; You can only connect them looking backward.' } />
+      renderToStaticMarkup(
+        <SimpleFormat text={ str } />
       )
-    ).to.equal('<div><p>You cannot connect the dots looking forward; You can only connect them looking backward.</p></div>')
+    ).to.equal(`<div><p>${str}</p></div>`)
   })
 
   it('renders text with 1 newline correctly', () => {
     expect(
-      React.renderToStaticMarkup(
-        <SimpleFormat text={ 'You cannot connect the dots looking forward;\n You can only connect them looking backward.' } />
+      renderToStaticMarkup(
+        <SimpleFormat text={ `${str1}\n${str2}` } />
       )
-    ).to.equal('<div><p>You cannot connect the dots looking forward; You can only connect them looking backward.</p></div>')
+    ).to.equal(`<div><p>${str1}\n<br />${str2}</p></div>`)
   })
 
   it('renders text with 2 consecutive newlines correctly', () => {
     expect(
-      React.renderToStaticMarkup(
-        <SimpleFormat text={ 'You cannot connect the dots looking forward;\n\n You can only connect them looking backward.' } />
+      renderToStaticMarkup(
+        <SimpleFormat text={ `${str1}\n\n${str2}` }/>
       )
-    ).to.equal('<div><p>You cannot connect the dots looking forward;</p><p> You can only connect them looking backward.</p></div>')
+    ).to.equal(`<div><p>${str1}</p><p>${str2}</p></div>`)
   })
 
   it('renders text with multiple linebreaks correctly', () => {
     expect(
-      React.renderToStaticMarkup(
-        <SimpleFormat text={ 'You cannot connect the dots looking forward;\n\n You can only connect them \n\n looking backward.' } />
+      renderToStaticMarkup(
+        <SimpleFormat text={ `${str1}\n\n${str2First}\n\n${str2Second}` } />
       )
-    ).to.equal('<div><p>You cannot connect the dots looking forward;</p><p> You can only connect them </p><p>looking backward.</p></div>')
+    ).to.equal(`<div><p>${str1}</p><p>${str2First}</p><p>${str2Second}</p></div>`)
   })
 
   it('renders an empty string correctly', () => {
     expect(
-      React.renderToStaticMarkup(
+      renderToStaticMarkup(
         <SimpleFormat text={''} />
       )
     ).to.equal('<div><p></p></div>')
@@ -49,23 +55,20 @@ describe('SimpleFormat', () => {
 
   it('renders the optional wrapperTag correctly', () => {
     expect(
-      React.renderToStaticMarkup(
+      renderToStaticMarkup(
         <SimpleFormat
-          text={ 'You cannot connect the dots looking forward; You can only connect them looking backward.' }
+          text={ str }
           wrapperTag={'h1'} />
       )
-    ).to.equal('<h1><p>You cannot connect the dots looking forward; You can only connect them looking backward.</p></h1>')
+    ).to.equal(`<h1><p>${str}</p></h1>`)
   })
 
   it('does not change the text passed in', () => {
     var component = renderIntoDocument(
-        <SimpleFormat text={ "You cannot connect the dots looking forward; You can only connect them looking backward." } />
+        <SimpleFormat text={ str } />
     )
     expect(
-      React.findDOMNode(component).textContent
-    ).to.equal('You cannot connect the dots looking forward; You can only connect them looking backward.')
+      findDOMNode(component).textContent
+    ).to.equal(str)
   })
-
 })
-
-

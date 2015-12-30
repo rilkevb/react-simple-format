@@ -15,7 +15,7 @@
   "scripts": {
     "build": "mkdir -p lib && babel ./src/index.js --out-file ./lib/index.js",
     "lint": "eslint src test",
-    "test": "mocha --compilers js:babel-core/register --require ./test/setup.js --recursive ./test -w",
+    "test": "mocha --compilers js:babel-core/register --require ./test/setup.js --recursive ./test",
     "prepublish": "npm run build"
   },
   "tags": [
@@ -28,7 +28,7 @@
     "ES6"
   ],
   "devDependencies": {
-    "react": "^0.14.0",
+    "react": "0.14.5",
     "babel-cli": "^6.1.2",
     "babel-core": "^6.2.1",
     "babel-eslint": "^4.1.6",
@@ -40,11 +40,11 @@
     "chai": "^3.4.1",
     "jsdom": "^7.2.2",
     "mocha": "^2.3.4",
-    "react": "0.14.3",
-    "react-addons-test-utils": "^0.14.3",
+    "react-addons-test-utils": "^0.14.5",
     "sanitize-html": "^1.11.1"
   },
   "dependencies": {
+    "react-dom": "^0.14.5",
     "sanitize-html": "^1.11.1"
   },
   "standard": {
