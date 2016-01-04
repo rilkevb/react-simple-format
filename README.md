@@ -1,4 +1,5 @@
 # react-simple-format
+[![](https://img.shields.io/travis/rilkevb/react-simple-format.svg)](https://travis-ci.org/rilkevb/react-simple-format) [![](https://img.shields.io/npm/v/react-simple-format.svg)](https://www.npmjs.com/package/react-simple-format)
 
 The port of Rails's [simple_format](http://api.rubyonrails.org/classes/ActionView/Helpers/TextHelper.html#method-i-simple_format) to React.
 
