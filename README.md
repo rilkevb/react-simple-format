@@ -28,7 +28,7 @@ This will render:
 
 Default is `'div'`, but you can change it to something else:
 
-```
+```js
 <SimpleFormat text={ ... } wrapperTag='article' />
 
 ↓
@@ -51,6 +51,22 @@ Default is `'div'`, but you can change it to something else:
 ### `wrapperTagProps` (object)
 
 `props` for the wrapper tag.
+
+### `postfix` (node)
+
+Allows you to add a node at the end of the last `p` tag.
+
+
+```js
+<SimpleFormat text={ ... } postfix='foo' />
+
+↓
+
+<div>
+  <p>...</p>
+  <p>...foo</p>
+</div>
+```
 
 ## Credits
 

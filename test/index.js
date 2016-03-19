@@ -71,4 +71,13 @@ describe('SimpleFormat', () => {
       findDOMNode(component).textContent
     ).to.equal(str)
   })
+
+  it('renders postfix correctly', () => {
+    expect(
+      renderToStaticMarkup(
+        <SimpleFormat text={ `${str1}\n\n${str2}` }
+                      postfix={ 'foo' } />
+      )
+    ).to.equal(`<div><p>${str1}</p><p><span>${str2}</span>foo</p></div>`)
+  })
 })

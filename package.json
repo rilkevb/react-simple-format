@@ -29,7 +29,7 @@
     "ES6"
   ],
   "devDependencies": {
-    "react": "0.14.5",
+    "react": "^0.14.7",
     "babel-cli": "^6.1.2",
     "babel-core": "^6.2.1",
     "babel-eslint": "^4.1.6",

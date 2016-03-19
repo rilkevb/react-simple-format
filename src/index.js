@@ -8,7 +8,8 @@ export default class SimpleFormat extends Component {
       React.PropTypes.string,
       React.PropTypes.object
     ]),
-    wrapperTagProps: PropTypes.object
+    wrapperTagProps: PropTypes.object,
+    postfix: PropTypes.node
   }
 
   static defaultProps = {
@@ -31,9 +32,14 @@ export default class SimpleFormat extends Component {
   }
 
   render () {
-    const { wrapperTag, wrapperTagProps } = this.props
+    const { wrapperTag, wrapperTagProps, postfix } = this.props
     return createElement(wrapperTag, wrapperTagProps, this.paragraphs().map((paragraph, index) => (
-      <p key={ index } dangerouslySetInnerHTML={{ __html: paragraph }} />
+      (postfix && index === this.paragraphs().length - 1)
+      ? <p key={ index }>
+        <span dangerouslySetInnerHTML={{ __html: paragraph }} />
+        { postfix }
+      </p>
+      : <p key={ index } dangerouslySetInnerHTML={{ __html: paragraph }} />
     )))
   }
 }
