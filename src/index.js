@@ -1,12 +1,13 @@
-import React, { Component, PropTypes, createElement } from 'react'
+import React, { Component, createElement } from 'react'
+import PropTypes from 'prop-types'
 import sanitizeHtml from 'sanitize-html'
 
 export default class SimpleFormat extends Component {
   static propTypes = {
     text: PropTypes.string.isRequired,
     wrapperTag: PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.object
+      PropTypes.string,
+      PropTypes.object
     ]),
     wrapperTagProps: PropTypes.object,
     postfix: PropTypes.node
